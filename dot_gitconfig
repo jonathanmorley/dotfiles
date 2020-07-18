@@ -1,0 +1,16 @@
+[push]
+	default = current
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+[fetch]
+	prune = true
+[rebase]
+	autosquash = true
+[user]
+	name = Morley, Jonathan
+	email = jmorley@cvent.com
+[init]
+	templateDir = /Users/jonathan/.git-template

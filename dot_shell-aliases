@@ -1,0 +1,19 @@
+# Neovim
+alias vi="nvim"
+alias vim="nvim"
+
+# Exa
+alias ls="exa"
+
+# Bat
+alias cat="bat"
+
+# CloudFormation Aliases
+alias why-cf="aws cloudformation describe-stack-events \
+  --query 'StackEvents[?ResourceStatus==\`CREATE_FAILED\` || \
+                        ResourceStatus==\`UPDATE_FAILED\` || \
+                        ResourceStatus==\`DELETE_FAILED\` || \
+                        ResourceStatus==\`ROLLBACK_IN_PROGRESS\`].ResourceStatusReason' \
+  --stack-name"
+
+alias dockerv='docker run --rm -it -v $(pwd):$(pwd) -w $(pwd)'

@@ -1,0 +1,69 @@
+# Via https://tanguy.ortolo.eu/blog/article25/shrc
+#
+# Zsh always executes zshenv. Then, depending on the case:
+# - run as a login shell, it executes zprofile;
+# - run as an interactive, it executes zshrc;
+# - run as a login shell, it executes zlogin.
+#
+# At the end of a login session, it executes zlogout, but in reverse order, the
+# user-specific file first, then the system-wide one, constituting a chiasmus
+# with the zlogin files.
+
+##
+# Common Shell
+##
+
+test -r "${HOME}/.shell-aliases" && source "${HOME}/.shell-aliases"
+
+autoload bashcompinit && bashcompinit
+
+##
+# Plugins
+##
+
+ZINIT_HOME="${HOME}/.zinit"
+if [[ ! -d "${ZINIT_HOME}" ]]; then
+  mkdir -p "${ZINIT_HOME}"
+  git clone https://github.com/zdharma/zinit.git "${ZINIT_HOME}/bin"
+fi
+
+source "${ZINIT_HOME}/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit wait lucid for \
+  'zsh-users/zsh-autosuggestions' \
+  'zdharma/fast-syntax-highlighting' \
+  'zdharma/history-search-multi-word'
+
+zinit light 'djui/alias-tips'
+
+zinit wait lucid for \
+  'OMZL::history.zsh' \
+  'OMZP::asdf' \
+  'OMZP::command-not-found' \
+  'OMZP::git' \
+  'OMZP::vscode'
+
+zinit ice pick'plugins/tmux/tmux.plugin.zsh'
+zinit light 'ohmyzsh/ohmyzsh'
+
+export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOSTART_ONCE=true
+export ZSH_TMUX_AUTOCONNECT=true
+
+##
+# Environment Variables
+##
+
+export NEXUS_NPM_TOKEN=
+
+# ASDF Java Plugin
+. ~/.asdf/plugins/java/set-java-home.zsh
+
+##
+# Miscellaneous
+##
+
+# Starship Prompt
+eval "$(starship init zsh)"

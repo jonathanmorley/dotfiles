@@ -1,0 +1,74 @@
+# Fonts
+cask "font-fira-mono-for-powerline"
+cask "font-firacode-nerd-font"
+
+# Browsers
+cask "firefox"
+
+# Security
+cask "1password"
+cask "1password-cli"
+cask "lulu"
+brew "openssl"
+
+# Development
+cask "intellij-idea"
+cask "postman"
+cask "visual-studio-code"
+
+# Productivity
+cask "microsoft-office"
+
+# Music
+cask "spotify"
+
+# Remote Access
+brew "openssh"
+cask "teamviewer"
+
+# Macos Helpers
+cask "muzzle"
+cask "vanilla"
+
+# Archive Management
+cask "the-unarchiver"
+
+# Virtualization
+cask "docker"
+cask "virtualbox"
+cask "vagrant"
+
+# Videos
+cask "vlc"
+
+# Communications
+cask "slack"
+cask "zoomus"
+cask "zoomus-outlook-plugin"
+
+# Terminal
+cask "alacritty"
+brew "starship"
+brew "tmux"
+brew "zsh"
+
+# Version Management
+brew "asdf"
+
+# AWS
+brew "awscli"'
+
+# Dotfile Management
+brew "chezmoi"
+
+# Searching
+brew "exa"
+brew "fd"
+brew "ripgrep"
+
+# Core Utilities
+brew "bat"
+brew "git"
+brew "jq"
+brew "neovim"
+brew "topgrade"
